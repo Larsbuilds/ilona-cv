@@ -10,31 +10,13 @@ import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/h
 import { MapPin, Phone, Mail, Lock, Unlock } from "lucide-react"
 import { fadeIn, slideIn } from "@/lib/animations"
 import { Button } from "@/components/ui/button"
-import { PasswordDialog } from "@/components/ui/password-dialog"
-import { encryptData, decryptData } from "@/lib/encryption"
-
-// Encrypted sensitive data
-const encryptedEmail = encryptData("ilona.dorosh.96@gmail.com")
-const encryptedPhone = encryptData("+380933401465")
-const encryptedAddress = encryptData("Київ, Україна")
 
 export default function CVPage() {
-  const [isUnlocked, setIsUnlocked] = useState(false)
-  const [showPasswordDialog, setShowPasswordDialog] = useState(false)
-  const [decryptedData, setDecryptedData] = useState({
-    email: "••••••••••••••••••••••••••••••••",
-    phone: "••••••••••••••••••••••••••••••••",
-    address: "••••••••••••••••••••••••••••••••",
+  const [contactData] = useState({
+    email: "ilona.dorosh.96@gmail.com",
+    phone: "+380933401465",
+    address: "Київ, Україна",
   })
-
-  const handleUnlock = () => {
-    setDecryptedData({
-      email: decryptData(encryptedEmail),
-      phone: decryptData(encryptedPhone),
-      address: decryptData(encryptedAddress),
-    })
-    setIsUnlocked(true)
-  }
 
   return (
     <div className="container mx-auto py-12 px-4">
@@ -63,13 +45,13 @@ export default function CVPage() {
                     <HoverCardTrigger asChild>
                       <button className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
                         <MapPin className="h-4 w-4" />
-                        <span>{decryptedData.address}</span>
+                        <span>{contactData.address}</span>
                       </button>
                     </HoverCardTrigger>
                     <HoverCardContent className="w-fit">
                       <div className="flex flex-col gap-2">
                         <span className="font-semibold">Location</span>
-                        <span>{decryptedData.address}</span>
+                        <span>{contactData.address}</span>
                       </div>
                     </HoverCardContent>
                   </HoverCard>
@@ -77,13 +59,13 @@ export default function CVPage() {
                     <HoverCardTrigger asChild>
                       <button className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
                         <Phone className="h-4 w-4" />
-                        <span>{decryptedData.phone}</span>
+                        <span>{contactData.phone}</span>
                       </button>
                     </HoverCardTrigger>
                     <HoverCardContent className="w-fit">
                       <div className="flex flex-col gap-2">
                         <span className="font-semibold">Phone</span>
-                        <span>{decryptedData.phone}</span>
+                        <span>{contactData.phone}</span>
                       </div>
                     </HoverCardContent>
                   </HoverCard>
@@ -91,13 +73,13 @@ export default function CVPage() {
                     <HoverCardTrigger asChild>
                       <button className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
                         <Mail className="h-4 w-4" />
-                        <span>{decryptedData.email}</span>
+                        <span>{contactData.email}</span>
                       </button>
                     </HoverCardTrigger>
                     <HoverCardContent className="w-fit">
                       <div className="flex flex-col gap-2">
                         <span className="font-semibold">Email</span>
-                        <span>{decryptedData.email}</span>
+                        <span>{contactData.email}</span>
                       </div>
                     </HoverCardContent>
                   </HoverCard>
@@ -252,12 +234,6 @@ export default function CVPage() {
           </motion.div>
         </div>
       </div>
-
-      <PasswordDialog
-        isOpen={showPasswordDialog}
-        onClose={() => setShowPasswordDialog(false)}
-        onSuccess={handleUnlock}
-      />
     </div>
   )
 } 
