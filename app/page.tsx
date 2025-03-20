@@ -7,16 +7,12 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card"
-import { MapPin, Phone, Mail, Lock, Unlock } from "lucide-react"
+import { MapPin, Phone, Mail } from "lucide-react"
 import { fadeIn, slideIn } from "@/lib/animations"
-import { Button } from "@/components/ui/button"
+import { obfuscatedData } from "../../lib/sensitive-data"
 
 export default function CVPage() {
-  const [contactData] = useState({
-    email: "ilona.dorosh.96@gmail.com",
-    phone: "+380933401465",
-    address: "Київ, Україна",
-  })
+  const [contactData] = useState(obfuscatedData)
 
   return (
     <div className="container mx-auto py-12 px-4">
@@ -32,13 +28,13 @@ export default function CVPage() {
           <CardContent className="grid md:grid-cols-[200px_1fr] gap-8 p-8">
             <div className="flex flex-col items-center gap-4">
               <Avatar className="h-40 w-40 ring-2 ring-primary/20 ring-offset-2 ring-offset-background">
-                <AvatarImage src="/images/ilona-profile.jpeg" alt="Ilona Dorosh" />
+                <AvatarImage src="/images/ilona-profile.jpeg" alt={contactData.name} />
                 <AvatarFallback>ID</AvatarFallback>
               </Avatar>
             </div>
             <div>
               <div className="space-y-2">
-                <h1 className="text-4xl font-bold">ІЛОНА ДОРОШ</h1>
+                <h1 className="text-4xl font-bold">{contactData.name}</h1>
                 <p className="text-2xl text-muted-foreground">ДИРЕКТ-МЕНЕДЖЕР</p>
                 <div className="flex gap-4 mt-4">
                   <HoverCard>
@@ -178,7 +174,7 @@ export default function CVPage() {
                   <div className="flex justify-between items-start mb-4">
                     <div>
                       <h3 className="font-semibold text-lg">ФЛОРИСТ • АДМІНІСТРАТОР</h3>
-                      <p className="text-muted-foreground">29 FLOWERS, КИЇВ</p>
+                      <p className="text-muted-foreground">{contactData.employers[0]}, КИЇВ</p>
                     </div>
                     <Badge>ЛИП 2018 - ЛЮТ 2021</Badge>
                   </div>
@@ -197,7 +193,7 @@ export default function CVPage() {
                   <div className="flex justify-between items-start mb-4">
                     <div>
                       <h3 className="font-semibold text-lg">КОНТЕНТ - МЕНЕДЖЕР ТА ДИРЕКТ-МЕНЕДЖЕР</h3>
-                      <p className="text-muted-foreground">QUARTER_FLOWERS_CV, ЧЕРНІВЦІ</p>
+                      <p className="text-muted-foreground">{contactData.employers[1]}, ЧЕРНІВЦІ</p>
                     </div>
                     <Badge>СЕРП 2023 - СІЧ 2024</Badge>
                   </div>
@@ -216,7 +212,7 @@ export default function CVPage() {
                   <div className="flex justify-between items-start mb-4">
                     <div>
                       <h3 className="font-semibold text-lg">АДМІНІСТРАТОР ТА ДИРЕКТ-МЕНЕДЖЕР</h3>
-                      <p className="text-muted-foreground">QUARTER_FLOWERS_CV, ЧЕРНІВЦІ</p>
+                      <p className="text-muted-foreground">{contactData.employers[1]}, ЧЕРНІВЦІ</p>
                     </div>
                     <Badge>СІЧ 2024 - ЛИСТ 2024</Badge>
                   </div>
