@@ -15,33 +15,33 @@ export default function CVPage() {
   const [contactData] = useState(obfuscatedData)
 
   return (
-    <div className="container mx-auto py-12 px-4">
+    <div className="container mx-auto py-6 sm:py-12 px-4">
       {/* Header/Profile Section */}
       <motion.div
         variants={fadeIn}
         initial="initial"
         animate="animate"
-        className="mb-12"
+        className="mb-8 sm:mb-12"
       >
         <Card className="relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-primary/10" />
-          <CardContent className="grid md:grid-cols-[200px_1fr] gap-8 p-8">
+          <CardContent className="grid sm:grid-cols-[200px_1fr] gap-6 sm:gap-8 p-6 sm:p-8">
             <div className="flex flex-col items-center gap-4">
-              <Avatar className="h-40 w-40 ring-2 ring-primary/20 ring-offset-2 ring-offset-background">
+              <Avatar className="h-32 sm:h-40 w-32 sm:w-40 ring-2 ring-primary/20 ring-offset-2 ring-offset-background">
                 <AvatarImage src="/images/ilona-profile.jpeg" alt={contactData.name} />
                 <AvatarFallback>ID</AvatarFallback>
               </Avatar>
             </div>
             <div>
-              <div className="space-y-2">
-                <h1 className="text-4xl font-bold">{contactData.name}</h1>
-                <p className="text-2xl text-muted-foreground">ДИРЕКТ-МЕНЕДЖЕР</p>
-                <div className="flex gap-4 mt-4">
+              <div className="space-y-2 text-center sm:text-left">
+                <h1 className="text-3xl sm:text-4xl font-bold">{contactData.name}</h1>
+                <p className="text-xl sm:text-2xl text-muted-foreground">ДИРЕКТ-МЕНЕДЖЕР</p>
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-4">
                   <HoverCard>
                     <HoverCardTrigger asChild>
-                      <button className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                        <MapPin className="h-4 w-4" />
-                        <span>{contactData.address}</span>
+                      <button className="flex items-center justify-center sm:justify-start gap-2 text-muted-foreground hover:text-primary transition-colors">
+                        <MapPin className="h-4 w-4 flex-shrink-0" />
+                        <span className="text-sm sm:text-base">{contactData.address}</span>
                       </button>
                     </HoverCardTrigger>
                     <HoverCardContent className="w-fit">
@@ -53,9 +53,9 @@ export default function CVPage() {
                   </HoverCard>
                   <HoverCard>
                     <HoverCardTrigger asChild>
-                      <button className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                        <Phone className="h-4 w-4" />
-                        <span>{contactData.phone}</span>
+                      <button className="flex items-center justify-center sm:justify-start gap-2 text-muted-foreground hover:text-primary transition-colors">
+                        <Phone className="h-4 w-4 flex-shrink-0" />
+                        <span className="text-sm sm:text-base">{contactData.phone}</span>
                       </button>
                     </HoverCardTrigger>
                     <HoverCardContent className="w-fit">
@@ -67,9 +67,9 @@ export default function CVPage() {
                   </HoverCard>
                   <HoverCard>
                     <HoverCardTrigger asChild>
-                      <button className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                        <Mail className="h-4 w-4" />
-                        <span>{contactData.email}</span>
+                      <button className="flex items-center justify-center sm:justify-start gap-2 text-muted-foreground hover:text-primary transition-colors">
+                        <Mail className="h-4 w-4 flex-shrink-0" />
+                        <span className="text-sm sm:text-base break-all">{contactData.email}</span>
                       </button>
                     </HoverCardTrigger>
                     <HoverCardContent className="w-fit">
@@ -86,7 +86,7 @@ export default function CVPage() {
         </Card>
       </motion.div>
 
-      <div className="grid md:grid-cols-[300px_1fr] gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-[300px_1fr] gap-6 sm:gap-8">
         {/* Left Column */}
         <div className="space-y-8">
           {/* Education Section */}
@@ -98,7 +98,7 @@ export default function CVPage() {
           >
             <Card>
               <CardHeader>
-                <h2 className="text-2xl font-bold">ОСВІТА</h2>
+                <h2 className="text-xl sm:text-2xl font-bold">ОСВІТА</h2>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
@@ -119,16 +119,16 @@ export default function CVPage() {
           >
             <Card>
               <CardHeader>
-                <h2 className="text-2xl font-bold">НАВИЧКИ</h2>
+                <h2 className="text-xl sm:text-2xl font-bold">НАВИЧКИ</h2>
               </CardHeader>
               <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  <Badge variant="secondary" className="hover:bg-primary/20 transition-colors">Вирішення конфліктних ситуацій</Badge>
-                  <Badge variant="secondary" className="hover:bg-primary/20 transition-colors">Комунікаційні навички</Badge>
-                  <Badge variant="secondary" className="hover:bg-primary/20 transition-colors">Багатозадачність</Badge>
-                  <Badge variant="secondary" className="hover:bg-primary/20 transition-colors">Організованість</Badge>
-                  <Badge variant="secondary" className="hover:bg-primary/20 transition-colors">Стресостійкість</Badge>
-                  <Badge variant="secondary" className="hover:bg-primary/20 transition-colors">Креативність</Badge>
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                  <Badge variant="secondary" className="text-sm hover:bg-primary/20 transition-colors">Вирішення конфліктних ситуацій</Badge>
+                  <Badge variant="secondary" className="text-sm hover:bg-primary/20 transition-colors">Комунікаційні навички</Badge>
+                  <Badge variant="secondary" className="text-sm hover:bg-primary/20 transition-colors">Багатозадачність</Badge>
+                  <Badge variant="secondary" className="text-sm hover:bg-primary/20 transition-colors">Організованість</Badge>
+                  <Badge variant="secondary" className="text-sm hover:bg-primary/20 transition-colors">Стресостійкість</Badge>
+                  <Badge variant="secondary" className="text-sm hover:bg-primary/20 transition-colors">Креативність</Badge>
                 </div>
               </CardContent>
             </Card>
@@ -146,10 +146,10 @@ export default function CVPage() {
           >
             <Card>
               <CardHeader>
-                <h2 className="text-2xl font-bold">ПРО СЕБЕ</h2>
+                <h2 className="text-xl sm:text-2xl font-bold">ПРО СЕБЕ</h2>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">
+                <p className="text-sm sm:text-base text-muted-foreground">
                   Відкрита до нового досвіду, завжди прагну розвиватися та приносити компанії конкретні результати.
                   Мій досвід і навички стануть цінним доповненням вашої команди. Готова розвиватися разом із вами та вносити позитивні зміни, спрямовані на покращення бізнес-процесів та досягнення спільних цілей.
                 </p>
@@ -166,19 +166,19 @@ export default function CVPage() {
           >
             <Card>
               <CardHeader>
-                <h2 className="text-2xl font-bold">ДОСВІД РОБОТИ</h2>
+                <h2 className="text-xl sm:text-2xl font-bold">ДОСВІД РОБОТИ</h2>
               </CardHeader>
-              <CardContent className="space-y-8">
+              <CardContent className="space-y-6 sm:space-y-8">
                 {/* Job 1 */}
                 <div>
-                  <div className="flex justify-between items-start mb-4">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 sm:gap-4 mb-4">
                     <div>
-                      <h3 className="font-semibold text-lg">ФЛОРИСТ • АДМІНІСТРАТОР</h3>
-                      <p className="text-muted-foreground">{contactData.employers[0]}, КИЇВ</p>
+                      <h3 className="font-semibold text-base sm:text-lg">ФЛОРИСТ • АДМІНІСТРАТОР</h3>
+                      <p className="text-sm sm:text-base text-muted-foreground">{contactData.employers[0]}, КИЇВ</p>
                     </div>
-                    <Badge>ЛИП 2018 - ЛЮТ 2021</Badge>
+                    <Badge className="w-fit text-sm">ЛИП 2018 - ЛЮТ 2021</Badge>
                   </div>
-                  <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+                  <ul className="list-disc list-inside space-y-1.5 sm:space-y-2 text-sm sm:text-base text-muted-foreground">
                     <li>Підбір ідеальних пропозицій відповідно до потреб клієнтів.</li>
                     <li>Вміння знаходити індивідуальний підхід до кожного покупця.</li>
                     <li>Впровадження нових ідей на основі аналізу ринку.</li>
@@ -190,14 +190,14 @@ export default function CVPage() {
 
                 {/* Job 2 */}
                 <div>
-                  <div className="flex justify-between items-start mb-4">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 sm:gap-4 mb-4">
                     <div>
-                      <h3 className="font-semibold text-lg">КОНТЕНТ - МЕНЕДЖЕР ТА ДИРЕКТ-МЕНЕДЖЕР</h3>
-                      <p className="text-muted-foreground">{contactData.employers[1]}, ЧЕРНІВЦІ</p>
+                      <h3 className="font-semibold text-base sm:text-lg">КОНТЕНТ - МЕНЕДЖЕР ТА ДИРЕКТ-МЕНЕДЖЕР</h3>
+                      <p className="text-sm sm:text-base text-muted-foreground">{contactData.employers[1]}, ЧЕРНІВЦІ</p>
                     </div>
-                    <Badge>СЕРП 2023 - СІЧ 2024</Badge>
+                    <Badge className="w-fit text-sm">СЕРП 2023 - СІЧ 2024</Badge>
                   </div>
-                  <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+                  <ul className="list-disc list-inside space-y-1.5 sm:space-y-2 text-sm sm:text-base text-muted-foreground">
                     <li>Впровадження автоматизації для оптимізації роботи (скрипти відповідей).</li>
                     <li>Адаптація комунікації та пропозицій під конкретного клієнта.</li>
                     <li>Створення програм лояльності, спеціальних пропозицій та бонусів.</li>
@@ -209,14 +209,14 @@ export default function CVPage() {
 
                 {/* Job 3 */}
                 <div>
-                  <div className="flex justify-between items-start mb-4">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 sm:gap-4 mb-4">
                     <div>
-                      <h3 className="font-semibold text-lg">АДМІНІСТРАТОР ТА ДИРЕКТ-МЕНЕДЖЕР</h3>
-                      <p className="text-muted-foreground">{contactData.employers[1]}, ЧЕРНІВЦІ</p>
+                      <h3 className="font-semibold text-base sm:text-lg">АДМІНІСТРАТОР ТА ДИРЕКТ-МЕНЕДЖЕР</h3>
+                      <p className="text-sm sm:text-base text-muted-foreground">{contactData.employers[1]}, ЧЕРНІВЦІ</p>
                     </div>
-                    <Badge>СІЧ 2024 - ЛИСТ 2024</Badge>
+                    <Badge className="w-fit text-sm">СІЧ 2024 - ЛИСТ 2024</Badge>
                   </div>
-                  <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+                  <ul className="list-disc list-inside space-y-1.5 sm:space-y-2 text-sm sm:text-base text-muted-foreground">
                     <li>Контроль роботи персоналу.</li>
                     <li>Організація графіків змін і робочого процесу.</li>
                     <li>Взаємодія з постачальниками.</li>
