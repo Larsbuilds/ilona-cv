@@ -9,7 +9,7 @@ import { Separator } from "@/components/ui/separator"
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card"
 import { MapPin, Phone, Mail } from "lucide-react"
 import { fadeIn, slideIn } from "@/lib/animations"
-import { obfuscatedData } from "../../lib/sensitive-data"
+import { obfuscatedData } from "@/lib/sensitive-data"
 
 export default function CVPage() {
   const [contactData] = useState(obfuscatedData)
